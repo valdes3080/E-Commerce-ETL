@@ -1,0 +1,9 @@
+IF DB_ID('EcomETL_Demo') IS NULL
+    CREATE DATABASE EcomETL_Demo;
+GO
+USE EcomETL_Demo;
+GO
+
+IF NOT EXISTS (SELECT 1 FROM sys.schemas WHERE name='stg') EXEC('CREATE SCHEMA stg');
+IF NOT EXISTS (SELECT 1 FROM sys.schemas WHERE name='dw')  EXEC('CREATE SCHEMA dw');
+GO
